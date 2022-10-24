@@ -29,6 +29,53 @@ elif (a==5):
 
 contador = 1;
 while (contador <10):
-    print('contador vale: ', contador)
+    if (contador %2 == 0):
+        print(contador, "es un número par")
+    else:
+        print(contador, "es un número impar")
     contador+=1
 print('Fin del while')
+
+lista = [1,2,3,'a']
+longitud = len(lista)
+print('La lista tiene', longitud, "items")
+
+for valorActual in range(longitud):
+    print(lista[valorActual])
+    
+
+listaPalabras = ['hola', 'mensaje', 'adios']
+
+for palabra in listaPalabras:
+    print('Palabra actual:',palabra)
+    if (palabra == 'mensaje'):
+        print('He encontrado la palabra mensaje')
+        break
+
+listaDesordenada = [3,4,1,2,5]
+print(listaDesordenada)
+listaOrdenada = sorted(listaDesordenada)
+print(listaOrdenada)
+listaOrdenadaReversa = sorted(listaDesordenada, reverse=True)
+print(listaOrdenadaReversa)
+
+valor = 1 #(input('Ingrese un valor del 1 al 5: '))
+
+match valor:
+    case 1:
+        print("El valor es 1")
+    case 2:
+        print("El valor es 2")
+    case 3:
+        print("El valor es 3")
+    case 4:
+        print("El valor es 4")
+    case 5:
+        print("El valor es 5")
+        
+for palabra in listaPalabras:
+    if palabra=='verbo':
+        print('He encontrado la palabra mensaje')
+        break
+else:
+    print('No he encontrado nada')

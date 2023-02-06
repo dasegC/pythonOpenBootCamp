@@ -5,6 +5,19 @@ import getpass
 def main():
     crear_usuario(5, 'miguel2', 'gmnz')
 
+def verificar_credenciales(username, password):
+    conn = sqlite3.connect("./miaplicacion.db")
+    cursor = conn.cursor()
+
+    query = f'SELECT id FROM users WHERE username="{username}" AND password="{password}"'
+
+    rows = conn.execute(query)
+    data = rows.fetchone()
+    print(f'Data es: {type(data)}')
+
+    cursor.close()  
+    conn.close()
+
 
 def main2():
     username = input('Nombre de usuario: ')
@@ -14,21 +27,6 @@ def main2():
         print('Login Correcto.')
     else:
         print('Login incorrecto.')
-
-
-def verificar_credenciales(username, password):
-    conn = sqlite3.connect("./11-DB/miaplicacion.db")
-    cursor = conn.cursor()
-
-    query = f'SELECT id FROM users WHERE username="{username}" AND password="{password}"'
-
-    rows = conn.execute(query)
-    data = rows.fetchone()
-    print(f'Data es: {type(data)}')
-
-    cursor.close()
-    conn.close()
-
 
 def crear_usuario(identificador, username, password):
     conn = sqlite3.connect("./11-DB/miaplicacion.db", isolation_level=None)
@@ -43,4 +41,4 @@ def crear_usuario(identificador, username, password):
 
 
 if __name__ == '__main__':
-    main()
+    main2()
